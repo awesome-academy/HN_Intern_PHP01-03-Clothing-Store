@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "chart.js": "^3.7.1",
+        "debug3": "^1.0.8",
         "pusher-js": "^7.1.1-beta"
     }
 }
