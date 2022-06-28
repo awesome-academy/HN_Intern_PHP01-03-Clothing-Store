@@ -54,21 +54,7 @@ class OrderController extends Controller
         $notification_id = $user->notifications->first()->id;
         $data['notification_id'] = $notification_id;
 
-        // event(new StatusNotificationEvent($data));
-
-        $options = [
-            'cluster' => 'ap1',
-            'encrypted' => true,
-        ];
-
-        $pusher = new Pusher(
-            env('PUSHER_APP_KEY'),
-            env('PUSHER_APP_SECRET'),
-            env('PUSHER_APP_ID'),
-            $options
-        );
-        
-        $pusher->trigger('my-channel-' . $user->id, 'my-event', $data);
+        event(new StatusNotificationEvent($data, $user->id));
 
         return redirect()->route('admin.orders.show', $order->id)->with('success', 'Update success');
     }

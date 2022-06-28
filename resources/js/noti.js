@@ -32,7 +32,7 @@ $(document).ready(function () {
 
         var status = '';
 
-        switch (data.status) {
+        switch (data.data.status) {
             case '1':
                 status = 'noti_pending';
                 break;
@@ -55,7 +55,7 @@ $(document).ready(function () {
 
         let notificationBox = ` 
         <a href="/orderdetail/${data.id}">
-        <li class="notification-box list" data-id="${data.notification_id}">
+        <li class="notification-box list" data-id="${data.data.notification_id}">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-12 box-noti">
                     <div>
